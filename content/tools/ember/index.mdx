@@ -1,0 +1,54 @@
+---
+title: Ember
+description: A placeholder tool used to pilot Hearth's layout and content model.
+tagline: Habit tracker
+character: The small, steady glow; keeps the fire going one day at a time
+status: building
+href: https://example.com
+repo: https://github.com/example/ember
+research: https://github.com/example/ember/tree/main/research
+accent: ember
+order: 1
+technologies: [Next.js, TypeScript, Tailwind CSS, Postgres, Vercel]
+skills: [Product design, Data modelling, Full-stack development]
+---
+
+<Callout title="Dummy project">
+  Ember is not a real tool. It exists to show how every Hearth tool page is laid out.
+  Copy the `content/tools/ember` folder to add a real one.
+</Callout>
+
+## What it is
+
+Ember tracks small daily habits and shows them as a slowly brightening fire. Miss a day
+and the fire dims, but it never goes out completely.
+
+## Why it exists
+
+I wanted a habit tracker that rewards consistency without punishing a missed day.
+Most trackers reset a streak to zero, and that is usually the moment people stop.
+
+## Features
+
+<FeatureGrid>
+  <Feature title="Daily check-in" icon="CircleCheck">
+    One tap per habit. No forms, no notes unless you want them.
+  </Feature>
+  <Feature title="Soft streaks" icon="Flame">
+    A missed day dims the fire instead of resetting it.
+  </Feature>
+  <Feature title="Weekly glow" icon="CalendarDays">
+    A Sunday summary of which habits stayed warm.
+  </Feature>
+  <Feature title="Private by default" icon="Lock">
+    Your data stays in your own database. No social feed.
+  </Feature>
+</FeatureGrid>
+
+## How it is built
+
+| Decision | Choice | Why |
+| --- | --- | --- |
+| Hosting | Vercel | Same platform as the rest of the suite |
+| Database | Postgres | Habits and check-ins are plain relational data |
+| Auth | Magic link | No passwords to manage for a personal tool |

@@ -1,0 +1,95 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/*
+ * Hearth is dark-only. Palette approximates Claude's dark mode:
+ * warm near-black surfaces, cream text, clay accent.
+ */
+.dark {
+  --color-fd-background: #262624;
+  --color-fd-foreground: #faf9f5;
+  --color-fd-muted: #30302e;
+  --color-fd-muted-foreground: #a6a39a;
+  --color-fd-popover: #30302e;
+  --color-fd-popover-foreground: #faf9f5;
+  --color-fd-card: #2c2c2a;
+  --color-fd-card-foreground: #faf9f5;
+  --color-fd-border: rgb(222 220 209 / 0.12);
+  --color-fd-primary: #d97757;
+  --color-fd-primary-foreground: #1f1e1d;
+  --color-fd-secondary: #30302e;
+  --color-fd-secondary-foreground: #faf9f5;
+  --color-fd-accent: rgb(217 119 87 / 0.14);
+  --color-fd-accent-foreground: #faf9f5;
+  --color-fd-ring: #d97757;
+  --color-fd-overlay: rgb(0 0 0 / 0.5);
+}
+
+.dark #nd-sidebar {
+  --color-fd-background: #1f1e1d;
+  --color-fd-muted: #30302e;
+  --color-fd-secondary: #30302e;
+  --color-fd-muted-foreground: #a6a39a;
+}
+
+/*
+ * Per-tool accents. Hearth itself is clay; each tool sets its own via
+ * `data-tool="<accent>"`. Add a line here when a new tool joins the family.
+ */
+:root {
+  --tool-accent: #d97757;
+}
+[data-tool='ember'] {
+  --tool-accent: #e8a04c;
+}
+[data-tool='reverie'] {
+  --tool-accent: #a78bdb;
+}
+[data-tool='almanac'] {
+  --tool-accent: #c9a96e;
+}
+[data-tool='echo'] {
+  --tool-accent: #6fb8b0;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-newsreader);
+  --color-tool: var(--tool-accent);
+  --color-clay: #d97757;
+}
+
+html {
+  scrollbar-gutter: stable;
+  color-scheme: dark;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Serif headings inside tool pages, matching the landing page. */
+.prose :where(h1, h2, h3) {
+  font-family: var(--font-newsreader), serif;
+  font-weight: 500;
+}
+
+@keyframes hearth-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hearth-glow {
+    animation: hearth-glow 9s ease-in-out infinite;
+  }
+}
